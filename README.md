@@ -1,1 +1,61 @@
 # portfolio-code
+
+Unity 클라이언트 개발자 **김동현** 포트폴리오의 코드 발췌 저장소입니다.
+
+포트폴리오 본문: <https://mmmdong.github.io/projects/>
+
+## 이 저장소의 성격
+
+각 프로젝트에서 **제가 설계·작성한 핵심 시스템만** 골라 담았습니다.
+전체 프로젝트 소스가 아니고, 그대로 빌드되지 않습니다.
+씬·프리팹·아트·사운드·밸런스 테이블·SDK·빌드 설정은 포함하지 않습니다.
+
+코드를 읽는 목적은 하나입니다 — 포트폴리오 본문이 설명한 설계 판단이
+실제 코드에서 어떻게 구현됐는지 확인하는 것.
+그래서 디렉터리를 프로젝트가 아니라 **시스템 단위**로 나눴습니다.
+
+## 구성
+
+| 경로 | 파일 | 내용 | 본문 |
+|---|---:|---|---|
+| `unknown-heroes/ui-architecture` | 10 | View–SubView–Panel–PopUp 4계층 UI 구조와 풀링 | [3-2](https://mmmdong.github.io/portfolio/unknown-heroes/) |
+| `unknown-heroes/gacha-probability` | 3 | 중첩 뽑기 테이블을 DFS로 순회하는 확률 산출 | [3-1 사례1](https://mmmdong.github.io/portfolio/unknown-heroes/) |
+| `unknown-heroes/worldmap-drop` | 2 | 월드맵 드랍 아이템 목록 정렬·가시성 개선 | [3-1 사례2](https://mmmdong.github.io/portfolio/unknown-heroes/) |
+| `unknown-heroes/appraisal` | 5 | 미확인 아이템 '감정' 콘텐츠, 슬롯머신 연출 | [3-3](https://mmmdong.github.io/portfolio/unknown-heroes/) |
+| `pixel-heroic-legend/battle-state-machine` | 9 | 유닛 상태 전이 기반 전투 코어 | [3-1](https://mmmdong.github.io/portfolio/pixel-heroic-legend/) |
+| `pixel-heroic-legend/pvp` | 7 | PVP 대전 유닛·전투·랭킹 UI | [3-2](https://mmmdong.github.io/portfolio/pixel-heroic-legend/) |
+| `return-hero/world-boss` | 4 | 월드보스 신규 콘텐츠와 랭킹 정산 | [3-2](https://mmmdong.github.io/portfolio/return-hero/) |
+| `eterna/steam-platform` | 7 | 플랫폼 추상화와 Steam·Android·iOS 로그인 분기 | [3-1](https://mmmdong.github.io/portfolio/eterna/) |
+| `common-modules/chat-system` | 8 | 뒤끝 SDK 기반 채널별 실시간 채팅 | [본문](https://mmmdong.github.io/portfolio/chat-system/) |
+| `common-modules/ad-manager` | 2 | 보상형 광고를 콜백 하나로 소비하는 싱글턴 | [본문](https://mmmdong.github.io/portfolio/applovin/) |
+
+전부 57개 파일, 자체 작성 코드입니다. 서드파티 라이브러리 소스는 없습니다.
+
+## 마스킹
+
+공개 전 시크릿 스캔을 돌렸고, 검출된 값은 무엇이었는지 알 수 있는
+자리표시자로 바꿨습니다. 값 자체는 이 저장소와 이력 어디에도 없습니다.
+
+| 자리표시자 | 원래 값 | 위치 |
+|---|---|---|
+| `<ONESTORE_REWARDED_AD_UNIT_ID>` 외 3종 | AppLovin 보상형 광고 Ad Unit ID | `ad-manager/AdManager.cs` |
+| `<GOOGLE_OAUTH_WEB_CLIENT_ID>` | Google OAuth 웹 클라이언트 ID | `steam-platform/Platform.cs` |
+| `<PLAYFAB_TITLE_ID_DEV>` 외 3종 | PlayFab TitleId (개발 + 라이브 3서버) | `world-boss/WorldBossPopup.cs` |
+
+스캐너는 OpenAI/Google API 키, OAuth 토큰, AWS 키, JWT, 사설키 블록,
+내부 엔드포인트, PlayFab TitleId, AppLovin Ad Unit ID 패턴을 봅니다.
+합성 시크릿을 주입해 실제로 검출되는지 확인한 뒤 통과 판정을 했습니다.
+
+남아 있는 외부 URL은 Play 스토어·Steam 스토어·iTunes lookup API처럼
+누구나 아는 공개 주소뿐입니다.
+
+## 인코딩
+
+원본 중 16개 파일이 CP949였습니다. 한글 주석이 깨지지 않도록
+전 파일을 UTF-8(BOM 없음) · LF로 변환했습니다. 그 외 내용 변경은
+위 마스킹이 전부입니다.
+
+## 권리
+
+상용 출시작에서 발췌한 코드가 포함돼 있어 오픈소스 라이선스를 붙이지 않습니다.
+**채용 검토 목적의 열람용**이며, 복제·재배포·상업적 이용을 허용하지 않습니다.

@@ -1,0 +1,22 @@
+# 유니티 산출물 — 이 저장소는 발췌 코드만 담는다
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Ll]ogs/
+*.csproj
+*.sln
+*.unitypackage
+
+# 시크릿 — 실수로도 들어오지 않게
+*.keystore
+*.jks
+google-services*.json
+GoogleService-Info.plist
+.env*
+*.p12
+*.pem
+
+# 밸런스 테이블 — 공개 대상이 아니다
+*.csv
+*.xlsx
