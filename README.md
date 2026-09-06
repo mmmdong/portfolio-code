@@ -8,7 +8,8 @@ Unity 클라이언트 개발자 **김동현** 포트폴리오의 코드 발췌 �
 
 각 프로젝트에서 **제가 설계·작성한 핵심 시스템만** 골라 담았습니다.
 전체 프로젝트 소스가 아니고, 그대로 빌드되지 않습니다.
-씬·프리팹·아트·사운드·밸런스 테이블·SDK·빌드 설정은 포함하지 않습니다.
+씬·프리팹·아트·사운드·SDK·빌드 설정은 포함하지 않습니다.
+테이블은 **구조 발췌만** 있습니다 — 전체 밸런스 데이터는 포함하지 않습니다.
 
 코드를 읽는 목적은 하나입니다 — 포트폴리오 본문이 설명한 설계 판단이
 실제 코드에서 어떻게 구현됐는지 확인하는 것.
@@ -22,6 +23,7 @@ Unity 클라이언트 개발자 **김동현** 포트폴리오의 코드 발췌 �
 | `unknown-heroes/gacha-probability` | 3 | 중첩 뽑기 테이블을 DFS로 순회하는 확률 산출 | [3-1 사례1](https://mmmdong.github.io/portfolio/unknown-heroes/) |
 | `unknown-heroes/worldmap-drop` | 2 | 월드맵 드랍 아이템 목록 정렬·가시성 개선 | [3-1 사례2](https://mmmdong.github.io/portfolio/unknown-heroes/) |
 | `unknown-heroes/appraisal` | 5 | 미확인 아이템 '감정' 콘텐츠, 슬롯머신 연출 | [3-3](https://mmmdong.github.io/portfolio/unknown-heroes/) |
+| `unknown-heroes/tables` | 3 | 위 코드가 읽는 시트의 구조 발췌 | [3-1](https://mmmdong.github.io/portfolio/unknown-heroes/) |
 | `pixel-heroic-legend/battle-state-machine` | 9 | 유닛 상태 전이 기반 전투 코어 | [3-1](https://mmmdong.github.io/portfolio/pixel-heroic-legend/) |
 | `pixel-heroic-legend/pvp` | 7 | PVP 대전 유닛·전투·랭킹 UI | [3-2](https://mmmdong.github.io/portfolio/pixel-heroic-legend/) |
 | `return-hero/world-boss` | 4 | 월드보스 신규 콘텐츠와 랭킹 정산 | [3-2](https://mmmdong.github.io/portfolio/return-hero/) |
@@ -29,7 +31,31 @@ Unity 클라이언트 개발자 **김동현** 포트폴리오의 코드 발췌 �
 | `common-modules/chat-system` | 8 | 뒤끝 SDK 기반 채널별 실시간 채팅 | [본문](https://mmmdong.github.io/portfolio/chat-system/) |
 | `common-modules/ad-manager` | 2 | 보상형 광고를 콜백 하나로 소비하는 싱글턴 | [본문](https://mmmdong.github.io/portfolio/applovin/) |
 
-전부 57개 파일, 자체 작성 코드입니다. 서드파티 라이브러리 소스는 없습니다.
+코드 57개 파일 전부 자체 작성입니다. 서드파티 라이브러리 소스는 없습니다.
+여기에 테이블 구조 발췌 3개가 더해집니다(아래).
+
+## 테이블 발췌
+
+테이블이 있는 프로젝트는 세 개지만, **프로젝트 글이 테이블을 언급하는 것은
+미확인 용사단 하나**입니다. 픽셀 영웅 전설과 귀환병 전기 글에는 테이블 이야기가
+없어서 올리지 않았습니다. 글이 설명하지 않는 데이터를 저장소에만 두면
+읽는 사람이 맥락 없이 숫자만 보게 됩니다.
+
+미확인 용사단 글이 이름을 대고 명세까지 실은 시트는 셋입니다.
+
+| 파일 | 원본 | 열 | 원본 행 수 |
+|---|---|---:|---:|
+| `TABLE.Summon.schema.json` | 뽑기 테이블 | 28 | 105 |
+| `DATA.LinkItem.schema.json` | 중첩 보상 참조 | 46 | 338 |
+| `STAGE.StageDrop.schema.json` | 스테이지 드랍 | 36 | 5,000 |
+
+각 파일에는 **열 구성과 원본 행 수, 대표 행 5개**만 있습니다.
+전체 데이터는 넣지 않았습니다 — 서비스 중인 게임의 밸런스이고,
+코드가 그 구조를 어떻게 다루는지 보이는 데는 다섯 행이면 충분합니다.
+
+원본 파일에 들어 있던 **구글 스프레드시트 ID는 제거**했습니다. 살아있는
+시트로 가는 접근 경로라, 숫자를 공개하느냐와 별개로 나가면 안 되는 값입니다.
+쿠폰 계열 시트도 같은 파일 안에 있지만 넣지 않았습니다.
 
 ## 마스킹
 
