@@ -27,7 +27,6 @@ Unity 클라이언트 개발자 **김동현** 포트폴리오의 코드 발췌 �
 | `pixel-heroic-legend/battle-state-machine` | 9 | 유닛 상태 전이 기반 전투 코어 | [3-1](https://mmmdong.github.io/portfolio/pixel-heroic-legend/) |
 | `pixel-heroic-legend/pvp` | 7 | PVP 대전 유닛·전투·랭킹 UI | [3-2](https://mmmdong.github.io/portfolio/pixel-heroic-legend/) |
 | `return-hero/world-boss` | 4 | 월드보스 신규 콘텐츠와 랭킹 정산 | [3-2](https://mmmdong.github.io/portfolio/return-hero/) |
-| `eterna/steam-platform` | 7 | 플랫폼 추상화와 Steam·Android·iOS 로그인 분기 | [3-1](https://mmmdong.github.io/portfolio/eterna/) |
 | `common-modules/chat-system` | 8 | 뒤끝 SDK 기반 채널별 실시간 채팅 | [본문](https://mmmdong.github.io/portfolio/chat-system/) |
 | `common-modules/ad-manager` | 2 | 보상형 광고를 콜백 하나로 소비하는 싱글턴 | [본문](https://mmmdong.github.io/portfolio/applovin/) |
 | `hello-kitty-mds/01-trophy-challenge` | 19 | 시즌제 도전과제 메타 — Repository / StateEvaluator / SortPolicy 분리 | [3-3](https://mmmdong.github.io/portfolio/hello-kitty-mds/) |
@@ -36,7 +35,7 @@ Unity 클라이언트 개발자 **김동현** 포트폴리오의 코드 발췌 �
 | `hello-kitty-mds/04-cafe-balloon-minigame` | 12 | 서브 컨텐츠형 퍼즐 — 인터페이스 + 합성으로 메인에 결합 | [3-5](https://mmmdong.github.io/portfolio/hello-kitty-mds/) |
 | `hello-kitty-mds/05-four-drop-item` | 8 | 머지판 연동 수집형 — 본편 공용 코드 무수정 additive 설계 | [3-1](https://mmmdong.github.io/portfolio/hello-kitty-mds/) |
 
-코드 121개 파일 전부 자체 작성입니다. 서드파티 라이브러리 소스는 없습니다.
+코드 114개 파일 전부 자체 작성입니다. 서드파티 라이브러리 소스는 없습니다.
 여기에 테이블 구조 발췌 3개가 더해집니다(아래).
 
 `hello-kitty-mds/` 는 **운영 중인 상용 프로젝트**에서 발췌한 것이라 한 가지를 더 손봤습니다 — 주석에 있던 사내 이슈 트래커 키를 `ISSUE-NN` 으로 치환했습니다. 같은 원본 키는 파일을 넘나들어도 같은 라벨로 가므로, "서로 다른 이슈를 가리킨다" 는 주석의 의미는 그대로입니다. 자세한 내용은 [`hello-kitty-mds/README.md`](hello-kitty-mds/README.md) 에 적어 두었습니다.
@@ -72,7 +71,6 @@ Unity 클라이언트 개발자 **김동현** 포트폴리오의 코드 발췌 �
 | 자리표시자 | 원래 값 | 위치 |
 |---|---|---|
 | `<ONESTORE_REWARDED_AD_UNIT_ID>` 외 3종 | AppLovin 보상형 광고 Ad Unit ID | `ad-manager/AdManager.cs` |
-| `<GOOGLE_OAUTH_WEB_CLIENT_ID>` | Google OAuth 웹 클라이언트 ID | `steam-platform/Platform.cs` |
 | `<PLAYFAB_TITLE_ID_DEV>` 외 3종 | PlayFab TitleId (개발 + 라이브 3서버) | `world-boss/WorldBossPopup.cs` |
 
 스캐너는 OpenAI/Google API 키, OAuth 토큰, AWS 키, JWT, 사설키 블록,
